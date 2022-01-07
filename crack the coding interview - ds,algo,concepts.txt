@@ -1,0 +1,382 @@
+// TODO: 
+    - NETWORKING 
+    - LESSON 2 
+
+// LESSON 1.1 - ARRAYS AND STRINGS 
+arrays - collection of data 
+    - static array (size of the array cannot be changed once initialized)
+        - python has no static array 
+    - dynamic array (size of the array dynamically changed)
+        - python has dynamic array 
+string - collection of characters | you could consider it as text 
+    - e.g. "This is a string"
+
+// LESSON 1.2 - LINKED LIST 
+linked list 
+    singly linked list - each node holds a value and pointer to the next node 
+        head(value, next node) -> node (value, next node) -> node (value, next node) -> tail (value, none)
+    doubly linked list - each node points to the previous node, holds a value, and pointer to the next node 
+        head(null, value, next node) -> node (previous node, value, next node) -> node (previous node, value, next node) -> tail (previous node, value, none)
+
+// LESSON 1.3 - STACKS 
+stacks 
+    - last in first out (like pringles)
+    - data(first data to get in) | data | data | data (first data to get out)
+    - push is for adding data, pop for deleting data 
+
+// LESSON 1.4 - QUEUES 
+queues 
+    - first in first out (like a line)
+    - data(first data to get in and out) | data | data | data 
+    - enqueue is for adding while dequeue is for removing data 
+
+// LESSON 1.5 - HASH TABLES 
+dictionaries - key value pairs 
+    - what's happening is the key becomes the index for the value, key becoming the index or the address because the key is generated through a hashing function 
+    - key1: value1, key2: value2, key3: value3 
+different terms
+    - hash maps 
+    - maps | java 
+    - unordered maps 
+    - dictionaries | python 
+    - objects | javascript 
+
+// LESSON 1.6 - TREES 
+trees: has hierarchical structure
+    binary search tree: follows order to arrange the element | left child node must be smaller than the parent node and right child node must be higher than the parent node 
+                7            
+            4       12        
+        1   6       8   14   
+    binary tree: follows no order to arrange the element
+        perfect binary tree (evenly distributed - all internal node has exactly two child nodes and all the leaf nodes are at the same level)
+                *            | root node 
+            *       *        | interior node 
+        *   *       *   *    | leaf node 
+        full binary tree (all the parent node must have two child nodes)
+                *
+            *       *
+        *   *
+        *       *
+        complete binary tree (last node must not be at the right leaf node)
+                *
+            *       *
+        *   *       *
+        degenerate binary tree (each parent node only has one child node)
+                *
+            *       
+        *   
+        balanced binary tree (|left subtree height - right subtree height| = 1)
+                *            |2 - 1| = 1 (true)
+            *       *
+        *   *
+must know binary trees algorithms 
+    - in-order: Left, Root, Right
+    - pre-order: Root, Left, Right 
+    - post-order: Left, Right, Root 
+important terms 
+    root: starting node from the top 
+    parent: node that has a children 
+    child: 
+        - child of a parent node 
+        - leaf is also a child node 
+    leaf 
+        - child node that has no child 
+        - very end of tree data structure 
+    sibling: sibling of another child node 
+
+// LESSON 1.7 - GRAPH: may contains cycle unlike trees , meaning may come to the same node again 
+type of graph 
+    directed graphs 
+        - edges has direction | meaning edges can be traversed in a specified direction only 
+        - web pages | e.g. homepage has links to different page and each of that page has link to another page or home page or any other page 
+    undirected graphs 
+        - edges has no direction 
+    weighted graphs 
+        - every edge has costs/weight just like in deep learning | this cost/weights are generalyl the cost to traverse the edge, the lower the cost/weight the easier and faster to traverse 
+    unweighted graphs 
+        - every edge has no weight | note: directed unweighted graph is possible 
+graph representation (different ways to show a graph)
+    adjacency list 
+        - assign a variable name for each node, create a linked list for each node, linked list for each node are for its adjacent node 
+            - e.g. we have an undirected graph - n1 is adjacent to n2, n2 is adjacent to n1 and n3 
+            n1 -> n2
+            n2 -> n1 -> n3
+            n3 -> n2
+    adjacency matrix 
+        - assign a variable name for each node, create a 2x2 matrix out of that variable names 
+            - if a node is adjacent to other node, write a value of 1 in its cell in the 2x2 matrix, if not adjacent then write 0 
+            - e.g. we have an undirected graph - n1 is adjacent to n2, n2 is adjacent to n1 and n3 
+                 n1  n2  n3  
+             n1 | 0 | 1 | 0 |
+             n2 | 1 | 0 | 1 |
+             n3 | 0 | 1 | 0 |
+must know graph traversal algorithms: dfs and bfs is also available for tree, in fact our example is for tree since its much easier to understand 
+    - depth first search 
+        - best use is when you know solutions are frequent but located deep in the tree 
+        - uses stack data structure
+        - start exploring at some arbitrary node -> explore one of the two adjacent node(a) from starting point -> explore the depth of that adjacent node(a), meaning explore and explore its adjacent nodes -> explore another one of the two adjacent node from starting point(b) -> explore the depth of that adjacent node(b)
+        - visualization: number represents the order of node exploration (subtree by subtree)
+                    1
+                2       5
+            3   4       6   7
+        - another example 
+                        1
+                    2   7   8   
+                3   6       9         
+            4   5           10    
+    - breadth first search: better when target is closer to source 
+        - best use when you know the target node is not far from the root 
+        - uses queue data structure
+        - start exploring at some arbitrary node -> explore one of the two adjacent node(a) from starting point -> explore the next adjacent node(b) from starting point -> continue exploring level by level until target is accomplished 
+        - visualization: number represents the order of node exploration (level by level)
+                    1
+                2       3
+            4   5       6   7
+important terms 
+    vertices/nodes: objects that has value 
+    edges: relationship between vertices 
+    adjacent nodes: two nodes are called adjacent if they are connected through an edge 
+    path: sequence of edges between two nodes 
+
+// LESSON 1.8 - TRIES 
+tries
+    - type of tree but is most often used for storing characters 
+    - used for autocompleting words 
+    - e.g.       A
+            I       X
+        R   D       E
+    - example above could form the words: axe,air,aid 
+
+// LESSON 2.1 - SORTING 
+sorting algorithms 
+    merge sort (divide and conquer algorithm)
+        - divide set of elements into half then divide again in half until each of them is separated 
+        - then start merging each element into pair -> merge pair into 2 pair -> merge again until all of them comes together 
+            - at each merge, sort the numbers 
+        - e.g. 
+            1 5 3 9 7       | divide into half 
+          1 5 3    9 7      | divide into half 
+        1 5   3     9 7     | divide into pieces
+       1   5   3   9   7    | yey they're now in pieces 
+        1    3 5    7 9     | start mergin', each merge you sort them 
+         1 3 5     7 9      | continue mergin' and sortin'
+           1 3 5 7 9        | yey here's the sorted final output 
+    quick sort 
+        - pick a random element from the set (this would be your pivot) -> 
+        - e.g. 
+            1 5 3 9 7 
+                7           | pick pivot (in this case we chose the number at the rightmost corner)
+           1 5 3   9        | divide, everything at the left of the pivot is less than the pivot while everyone at the right is greater than the pivot 
+             3              | pick pivot from the left side division, we would not pick pivot on right side division since it's only one 
+           1   5            | divide, every at the left ... (copy the exact wordings from above)
+           1 3 5            | start merging, join left and right division back to its pivot 
+           1 3 5 7 9        | continue merging, join left and right division back to its pivot 
+
+    bubble sort 
+        - sort thru each pair at every iteration, move pair selection by 1 at every iteration 
+        - e.g. 
+            |5|3|1 6 7 2 4 8 - 1st iteration, 5 is larger than 3 swap them out 
+            |3|5|1 6 7 2 4 8 - result 
+
+            3|5|1|6 7 2 4 8 - 2nd iteration, 5 is larger than 1 swap them out 
+            3|1|5|6 7 2 4 8 - result 
+
+            3 1|5|6|7 2 4 8 - 3rd iteration, 5 isnt larger than 6, do nothing 
+            3 1|5|6|7 2 4 8 - result 
+
+            and so on...
+
+// LESSON 2.2 - SEARCHING 
+depth first search: already covered in lesson 1.7
+breadth first search: already covered in lesson 1.7
+binary search 
+    
+
+// LESSON 2.3 - TREES METHODS 
+
+
+// LESSON 2.4 - DYNAMIC PROGRAMMING 
+
+
+// LESSON 3.1 - BIT MANIPULATION 
+and (&): both needs to be true(1) to be true(1)
+    - 0 & 0 = 0 
+    - 1 & 0 = 0 
+    - 0 & 1 = 0 
+    - 1 & 1 = 1
+or (|): if one is true (1) then the output is true(1)
+    - 0 | 0 = 0 
+    - 1 | 0 = 1 
+    - 0 | 1 = 1 
+    - 1 | 1 = 1
+xor (^): only one is true(1) for the output to be true(1)
+    - 0 ^ 0 = 0 
+    - 1 ^ 0 = 1 
+    - 0 ^ 1 = 1 
+    - 1 ^ 1 = 0
+left shift (<<): shift how many bits to the left 
+    - 00011001 << 2 = 01100100
+right shift (>>): shift how many bits to the right 
+    - 00011001 >> 2 = 00000110
+
+// LESSON 3.2 - OBJECT ORIENTED DESIGN 
+- object oriented design questions are very important, as they demonstrate the quality of a candidate’s code
+- e.g. we're designing the objects for a deck of cards 
+    - what are your goals (e.g. we want a general purpose deck of cards to implement many different types of card games)
+    - what are the core objects (e.g. Card, Deck, Number, Suit, PointValue)
+    - have you missed anything (e.g. think about how you’ll use that deck of cards to implement different types of games,)
+    - how will the methods work (e.g. if you have a method like Card Deck:.getCard(Suit s, Number n), think about how it will retrieve the card)
+- another e.g. designing a parking lot 
+    - what are your goals (e.g. figure out if a parking spot is taken)
+    - think about the core objects (e.g. Car, ParkingSpot, ParkingLot, ParkingMeter)
+    - have you missed anything (e.g. how will we represent parking restrictions based on time or payment?)
+    - how will we know whether or not a car is in a spot (e.g. think about how to represent the data so that the methods are most efficient)
+
+// LESSON 3.3 - RECURSION 
+recursion 
+    - calling the function inside the same function
+        int foo(x){ 
+            if (x == 0){
+                break;
+            }
+            foo(x-1){ // calling the function inside the function 
+                std::cout << x << std::endl;
+            }
+        }
+    - typically appears to be built off solutions to sub-problems (e.g. compute f(n) by adding something)
+    - anything that can be solved recursively can also be solved iteratively 
+    - recursive calls adds a new layer to the stack which could cause stack overflow, that's why most of the time iteration or loops is much better 
+how to approach 
+    - think about what the sub problem is 
+    - solve for a base case (e.g. if you need to computer f(n), first compute it for f(0) then f(1) then f(2))
+    - understand how to solve further (e.g. understanding how to solve for f(3))
+    - generalize for f(n) once you found the pattern 
+
+// LESSON 3.4 - SYSTEM DESIGN AND MEMORY LIMITS 
+general approach 
+    - e.g. we're designing a hypothetical system x 
+        - how would you solve it for a small number of items 
+        - what happens when you try to implement that algorithm with millions of items?  It’s likely that you have run out of space on the computer. So, divide up the files across many computers. 
+            - how do you divide up data across many machines 
+            - determine how many computers will you need | to estimate this, ask how big each item is and take a guess at how much space a typical computer has 
+        - fix the problems that occur when you are using many computers 
+            - how does one machine know which machine it should access to look up data 
+            - can data get out of sync across computers? how do you handle that 
+            - how can you minimize expensive reads across computers 
+
+// LESSON 3.5 - DATABASES 
+    - check your data engineering concept notes (e.g. dbms, data warehousing, etc.)
+
+// LESSON 3.6 - LOW LEVEL 
+memory 
+    stack: stack > function(stored in stack) > variable(stored in function - if the function ends so does the variable) 
+    heap: dynamic memory allocation, data inside this can be automatically removed at the end of the program or if there is a garbage collector(java has this) but if not(c++) you have to manually remove it 
+    static/global: this is where static and global variable goes or data that can only be initialized once 
+    code 
+
+// UNFINISHED - LESSON 3.7 - NETWORKING 
+
+// LESSON 3.8 - THREADS AND LOCKS 
+threads 
+    - in which you execute your code (main thread is where all code are getting executed by)
+multithreading 
+    - executing set of code from multiple threads all at the same time (not really at the same time, it's switching very fast to each other)
+deadlock
+    - situation where a set of processes are blocked because each process is holding a resource and waiting for another resource acquired by some other process 
+    - e.g. process 1 is holding resource 1 and waiting for resource 2 which is acquired by process 2, and process 2 is waiting for resource 1 
+    - visualization: https://www.cs.fsu.edu/~baker/cop5611.S03/graphics/basicdeadlock2.gif
+    deadlock condition 
+        - mutual exclusion: only one process can use a resource at a given time 
+        - hold and wait: processes already holding a resource at a given time 
+        - no preemption: one process cannot forcibly remove another process' resource 
+        - circular wait: two or more processes form a circular chain where each process is waiting on another resource in the chain 
+
+// LESSON 3.9 - BIG O COMPLEXITY 
+big o: determines how scalable the code is 
+big o complexities
+    O(1) - constant time | time complexity is not dependent on how many the element inside an array is 
+    O(n) - linear time | time complexity is dependent on how many the element inside an array is 
+    O(n^2) - quadratic time | time complexity if there are nested for loop | no. of operations increases dramatically as the number of element increases 
+    O(n!) - factorial time, worst of them all | we're adding a nested loop for every input that we have | you're probably never going to see it
+
+// LESSON 3.10 - DESIGN PATTERNS 
+    - singleton design pattern 
+        - objects instantiated from the class only belongs to one state | if you change something in object1 then it would also change for object2
+    - factory design pattern 
+        - objects instantiated from the class has each of their own states | if you change something on object1 then it would not affect object2 
+
+/ LESSON X.1 - WHAT YOU NEED TO KNOW 
+data structures 
+    - vectors/arraylist 
+    - linked list 
+    - stacks 
+    - queues
+    - hash tables 
+    - binary trees 
+    - graph 
+    - tries  
+
+algorithms 
+    sorting 
+        - merge sort 
+        - quick sort 
+        - bubble sort 
+    searching 
+        - breadth first search 
+        - depth first search 
+        - binary search 
+    trees methods
+        - tree insert/find/etc. 
+    dynamic programming 
+        - dynamic programming
+
+concepts 
+    - bit manipulation 
+    - object oriented design 
+    - recursion 
+    - system design and memory limits 
+    - databases 
+    - low level 
+    - networking 
+    - threads and locks 
+    - big o time 
+    - design patterns 
+        - singleton design pattern 
+        - factory design pattern 
+
+// LESSON X.2 - FIVE PROBLEM SOLVING APPROACHES 
+- examplify
+    - give example to your desired output 
+    - define how you could solve that problem part by part
+    - create a descriptive algorithm for your solution 
+- pattern matching 
+    - consider what problem is similar to the problem youre current solving 
+    - think how you solved a similar problem before 
+    - create a descriptive algorithm for your solution 
+- simplify, examplify and generalize
+    - change a constraint (data type, size, etc) to simplify the problem
+    - give an example to your desired output that has been simplified 
+    - create a descriptive algorithm for your solution 
+- base case and build 
+    - examplify first and solve the first base case 
+    - then so on for the next case 
+    - solve again for third case then think of how you could generalize the solution, of course create a descriptive algorithm again 
+- data structure brain storm 
+    - simply run through a list of data structure and try to apply each one, choose which data structure is the best for solving your problem 
+- simplify, examplify, generalize + data structure brainstorm (best approach)
+    - change a constraint (data type, size, etc) to simplify the problem
+    - give an example to your desired output that has been simplified 
+    - run through a list of data structure and try to apply each one, choose which data structure is the best for solving your problem 
+    - create a descriptive algorithm for your solution 
+
+// LESSON X.3 - SET OF RULES FOR DETERMINING THE DATA STRUCTURE TO USE 
+- vectors/arraylist (dynamic array) (or list in python)
+- linked list 
+- stacks (list could act as a stack since it has append and pop)
+- queues
+- hash tables (dictionary in python)
+- binary trees 
+- tries  
+
+// LESSON X.4 - SET OF RULES FOR DETERMINING THE ALGORITHM TO USE 
+
